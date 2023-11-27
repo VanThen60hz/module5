@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Welcome from "./components/Welcome";
+import AddComponent from "./components/AddComponent";
 
 function App() {
   return (
     <div className="App">
-      <Welcome name="admin" />
+      <AddComponent firstNumber={1} secondNumber={2} />
     </div>
   );
 }
