@@ -1,30 +1,26 @@
-import { Component } from "react";
+import React, { Component } from "react";
+import Hello from "./components/Hello";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: "black",
+      display: true,
     };
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ color: "pink" });
-    }, 3000);
-  }
+  delete = () => {
+    this.setState({ display: false });
+  };
 
   render() {
+    let comp;
+    if (this.state.display) {
+      comp = <Hello />;
+    }
     return (
-      <div>
-        <div
-          style={{
-            backgroundColor: this.state.color,
-            paddingTop: 20,
-            width: 400,
-            height: 80,
-            margin: "auto",
-          }}
-        />
+      <div style={{ textAlign: "center" }}>
+        {comp}
+        <button onClick={this.delete}>Delete this component</button>
       </div>
     );
   }
