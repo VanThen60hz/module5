@@ -1,26 +1,36 @@
 import React, { Component } from "react";
-import Hello from "./components/Hello";
+import Home from "./components/Home";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: true,
+      isLogIn: false,
     };
   }
 
-  delete = () => {
-    this.setState({ display: false });
+  handleLogin = () => {
+    this.setState({
+      isLogIn: true,
+    });
+  };
+
+  handleLogout = () => {
+    this.setState({
+      isLogIn: false,
+    });
   };
 
   render() {
-    let comp;
-    if (this.state.display) {
-      comp = <Hello />;
+    const { isLogIn } = this.state;
+    if (isLogIn) {
+      return <Home onLogout={this.handleLogout} />;
     }
     return (
       <div style={{ textAlign: "center" }}>
-        {comp}
-        <button onClick={this.delete}>Delete this component</button>
+        <div>
+          <h1>Please log in</h1>
+          <button onClick={this.handleLogin}>Log in</button>
+        </div>
       </div>
     );
   }
