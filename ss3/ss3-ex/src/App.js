@@ -1,10 +1,10 @@
 import "./App.css";
-import Alert from "./components/Alert";
+import { Calculator } from "./components/Calculator";
 
 function App() {
   return (
     <div className="App">
-      <Alert text="Cảnh báo! Tài nguyên bạn vừa truy cập không tồn tại." />
+      <Calculator />
     </div>
   );
 }
