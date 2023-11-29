@@ -1,35 +1,46 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
-import { StudentList } from "./components/StudentList";
-import { Student } from "./model/student";
+interface AppState {
+  isExpanded: boolean;
+}
 
-const studentList: Student[] = [
-  {
-    id: 1,
-    name: "Nguyen Van A",
-    age: 18,
-    address: "Ha Noi",
-  },
-  {
-    id: 2,
-    name: "Nguyen Van B",
-    age: 19,
-    address: "Ha Nam",
-  },
-  {
-    id: 3,
-    name: "Nguyen Van C",
-    age: 20,
-    address: "Ha Tay",
-  },
-];
+class App extends Component<{}, AppState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      isExpanded: false,
+    };
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <StudentList students={studentList} />
-    </div>
-  );
+  handleToggleExpand = () => {
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h1 style={{ backgroundColor: "green", color: "white" }}>
+          Condition Rendering
+        </h1>
+        {this.state.isExpanded ? (
+          <>
+            <button onClick={this.handleToggleExpand}>Đóng giới thiệu</button>
+            <h1>Giới thiệu</h1>
+            <p>
+              Trong ReactJs, đôi khi bạn có một thuộc vào từng điều kiện ví dụ
+              như trạng thái của state, props,... mà bạn muốn hiển thị một hoặc
+              một số component nào đó. Khi đó bạn có thể sử dụng Conditional
+              rendering để render ra component mà bạn mong muốn.
+            </p>
+          </>
+        ) : (
+          <button onClick={this.handleToggleExpand}>Xem giới thiệu</button>
+        )}
+      </div>
+    );
+  }
 }
 
 export default App;
