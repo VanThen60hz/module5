@@ -22,8 +22,9 @@ export const StudentList: React.FC<StudentListProps> = ({ students }) => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student) => (
+          {students.map((student, index) => (
             <tr key={student.id}>
+              <td>index</td>
               <td>{student.id}</td>
               <td>{student.name}</td>
               <td>{student.age}</td>
