@@ -45,7 +45,7 @@ function Employee() {
               onClick={handleClickRow(employee.id, employee.name, employee.age)}
               style={{ cursor: "pointer" }}
             >
-              <td>{index}</td>
+              <td>{index + 1}</td>
               <td>{employee.name}</td>
               <td>{employee.age}</td>
             </tr>
