@@ -44,3 +44,7 @@ label {
 .custom-input {
   padding-bottom: 2%;
 }
+
+.active {
+  color: red;
+}
