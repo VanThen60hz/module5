@@ -1,12 +1,14 @@
-import Home from "../components/Home";
-import LoginForm from "../components/LoginForm";
+import Employee from "../components/Employee/Employee";
+import EmployeeDetail from "../components/Employee/EmployeeDetail";
+import Home from "../components/Home/Home";
+import LoginForm from "../components/Login/LoginForm";
 import LayOut from "../layout/LayOut";
 
 const routes = [
   {
     path: "/",
     element: <LayOut />,
-    errorElement: "<div>404</div>",
+    errorElement: <div className="text-center">404</div>,
     children: [
       {
         path: "/hello",
@@ -19,6 +21,14 @@ const routes = [
       {
         path: "/login",
         element: <LoginForm />,
+      },
+      {
+        path: "employee",
+        element: <Employee />,
+      },
+      {
+        path: "/employee-detail/:id",
+        element: <EmployeeDetail />,
       },
     ],
   },

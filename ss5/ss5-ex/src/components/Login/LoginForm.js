@@ -18,7 +18,7 @@ function LoginForm() {
 
   const handleLogin = (values) => {
     if (values.email === "admin@gmail.com" && values.password === "letmein") {
-      navigation("/home", { state: { account: { email: values.email } } });
+      navigation("/employee", { state: { account: { email: values.email } } });
       toast.success("Login successfully!");
     } else {
       toast.error("Login failed! Please enter the right email and password!");
