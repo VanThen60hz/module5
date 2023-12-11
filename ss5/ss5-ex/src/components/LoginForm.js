@@ -27,7 +27,7 @@ function LoginForm() {
 
   return (
     <div className="container my-5">
-      <h1 className="text-center">Login page</h1>
+      <h1 className="text-center my-5">Login page</h1>
       <Formik
         initialValues={initialValues}
         onSubmit={(values, { setSubmitting }) => {
