@@ -1,10 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Product() {
-  let { categoryName } = useParams();
+  let { state } = useLocation();
+
   return (
     <>
-      <h3>Car Selected {categoryName}</h3>
+      <h3>
+        {state && state.categoryName
+          ? `Car Selected: ${state.categoryName}`
+          : "No car selected"}
+      </h3>
     </>
   );
 }

@@ -8,7 +8,11 @@ function Category() {
       <h2>Select a Category:</h2>
       <select
         defaultValue="default"
-        onChange={(e) => navigate(`/product/${e.target.value}`)}
+        onChange={(e) =>
+          navigate(`/product`, {
+            state: { categoryName: e.target.value },
+          })
+        }
       >
         <option value="default" disabled hidden>
           Choose your car
