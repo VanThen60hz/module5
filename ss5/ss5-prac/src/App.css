@@ -36,11 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-label {
-  display: block;
-}
-
-.custom-input {
-  padding-bottom: 2%;
-}
