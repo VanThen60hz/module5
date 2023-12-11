@@ -1,80 +1,147 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./SignUpForm.css";
 
-function SignUpForm() {
+export default function SignUpForm() {
+  const MESSAGE_ERROR = {
+    username: "Username error",
+    email: "Email error",
+    password: "Password error",
+    confirmPassword: "Password must be the same",
+  };
+
+  const REGEX = {
+    username: /^[a-zA-Z]{2,}$/,
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    password: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}$/,
+  };
+
   const [form, setForm] = useState({});
 
-  const handleChange = (e) => {
+  function handleChange(event) {
+    let error = "";
+    if (event.target.name === "password") {
+      if (form.confirmPassword && form.confirmPassword.value) {
+        error =
+          event.target.value === form.confirmPassword.value
+            ? ""
+            : MESSAGE_ERROR[event.target.name];
+      } else {
+        error = REGEX[event.target.name].test(event.target.value)
+          ? ""
+          : MESSAGE_ERROR[event.target.name];
+      }
+    } else if (event.target.name === "confirmPassword") {
+      error =
+        event.target.value === form.password.value
+          ? ""
+          : MESSAGE_ERROR[event.target.name];
+    } else {
+      error = REGEX[event.target.name].test(event.target.value)
+        ? ""
+        : MESSAGE_ERROR[event.target.name];
+    }
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [event.target.name]: { value: event.target.value, error: error },
     });
-  };
+  }
 
-  const handleSubmit = () => {
-    const isValid =
+  function handleSubmit() {
+    const isFilled =
       form.username &&
+      form.username.value &&
       form.email &&
+      form.email.value &&
       form.password &&
+      form.password.value &&
       form.confirmPassword &&
-      form.password === form.confirmPassword;
+      form.confirmPassword.value;
+    const isError =
+      isFilled &&
+      (form.username.error ||
+        form.email.error ||
+        form.password.error ||
+        form.confirmPassword.error);
+
     alert(
-      isValid
-        ? "Sign in successfully"
-        : "Please fill out all the field or your confirm password is not same as previous password!!"
+      isFilled && !isError
+        ? "Sign up successfully!!!"
+        : "Please fill out all the fields!!!"
     );
-  };
+  }
 
   return (
-    <>
+    <div>
       <h1>Sign up</h1>
       <form>
-        <div className="custom-input">
-          <label htmlFor="username">Username</label>
+        <div
+          className={`custom-input ${
+            form.username && form.username.error && "custom-input-error"
+          }`}
+        >
+          <label>Username </label>
           <input
-            type="text"
-            id="username"
             name="username"
-            value={form.username || ""}
+            value={(form.username && form.username.value) || ""}
             onChange={handleChange}
           />
+          {form.username && form.username.error && (
+            <p className="error">{form.username.error}</p>
+          )}
         </div>
-        <div className="custom-input">
-          <label htmlFor="email">Email</label>
+        <div
+          className={`custom-input ${
+            form.email && form.email.error && "custom-input-error"
+          }`}
+        >
+          <label>Email </label>
           <input
-            type="email"
-            id="email"
             name="email"
-            value={form.email || ""}
+            value={(form.email && form.email.value) || ""}
             onChange={handleChange}
           />
+          {form.email && form.email.error && (
+            <p className="error">{form.email.error}</p>
+          )}
         </div>
-        <div className="custom-input">
-          <label htmlFor="password">Password</label>
+        <div
+          className={`custom-input ${
+            form.password && form.password.error && "custom-input-error"
+          }`}
+        >
+          <label>Password </label>
           <input
             type="password"
-            id="password"
             name="password"
-            value={form.password || ""}
+            value={(form.password && form.password.value) || ""}
             onChange={handleChange}
           />
+          {form.password && form.password.error && (
+            <p className="error">{form.password.error}</p>
+          )}
         </div>
-        <div className="custom-input">
-          <label htmlFor="confirmPassword">Confirm Password</label>
+        <div
+          className={`custom-input ${
+            form.confirmPassword &&
+            form.confirmPassword.error &&
+            "custom-input-error"
+          }`}
+        >
+          <label>Confirm password </label>
           <input
             type="password"
-            id="confirmPassword"
             name="confirmPassword"
-            value={form.confirmPassword || ""}
+            value={(form.confirmPassword && form.confirmPassword.value) || ""}
             onChange={handleChange}
           />
+          {form.confirmPassword && form.confirmPassword.error && (
+            <p className="error">{form.confirmPassword.error}</p>
+          )}
         </div>
         <button type="button" onClick={handleSubmit}>
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }
-
-export default SignUpForm;
