@@ -1,22 +1,16 @@
 import "./App.css";
-import Home from "./components/Home";
-import { BrowserRouter, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Product from "./components/Product";
+import Category from "./components/Category";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <ul>
-          <li>
-            <NavLink to="/home">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact</NavLink>
-          </li>
-        </ul>
+        <Routes>
+          <Route path="/" element={<Category />} />
+          <Route path="/product/:categoryName" element={<Product />} />
+        </Routes>
       </BrowserRouter>
     </>
   );
