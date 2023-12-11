@@ -1,13 +1,11 @@
 import "./App.css";
-import HeathCareForm from "./components/HealthCare/HeathCareForm";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
-      <HeathCareForm />
-      <ToastContainer />
+      <h1>React App</h1>
     </>
   );
 }
