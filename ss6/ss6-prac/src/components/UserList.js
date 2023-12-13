@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import * as UserService from "../services/UserService";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function UserList() {
   const [users, setUsers] = useState();
+  const nav = useNavigate();
 
   useEffect(() => {
-    //call api
     getAllUser();
   }, []);
 
@@ -15,22 +15,24 @@ function UserList() {
       let temp = await UserService.findAll();
       setUsers(temp);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
   return (
-    <>
-      <h1 className="text-center">User List</h1>
-      <ul className="text-center">
+    <div className="text-center">
+      <h1>User List</h1>
+      <ul>
         {users?.map((user) => (
-          <li style={{ listStyle: "none" }} key={user.id}>
-            {" "}
-            {user.name}{" "}
+          <li key={user.id} style={{ listStyle: "none" }}>
+            <NavLink to={`/user/${user.id}`} state={{ user }}>
+              {user.name}
+            </NavLink>
           </li>
         ))}
       </ul>
-    </>
+      <button onClick={() => nav("/user/add")}>Create</button>
+    </div>
   );
 }
 
