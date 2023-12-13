@@ -1,3 +1,4 @@
+import EmailForm from "../components/Email/EmailForm";
 import Employee from "../components/Employee/Employee";
 import EmployeeDetail from "../components/Employee/EmployeeDetail";
 import Home from "../components/Home/Home";
@@ -34,6 +35,10 @@ const routes = [
       {
         path: "/library",
         element: <Library />,
+      },
+      {
+        path: "email",
+        element: <EmailForm />,
       },
     ],
   },

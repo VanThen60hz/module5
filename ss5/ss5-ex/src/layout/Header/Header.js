@@ -22,6 +22,11 @@ function Header() {
                   Trang Thư viện (library)
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link btn btn-light" to={`/email`}>
+                  Soạn thảo email
+                </NavLink>
+              </li>
             </ul>
           </div>
         </nav>
