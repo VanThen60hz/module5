@@ -4,16 +4,20 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 function UserList() {
   const [users, setUsers] = useState();
+  const [loading, setLoading] = useState(true);
   const nav = useNavigate();
 
   useEffect(() => {
-    getAllUser();
+    setTimeout(() => {
+      getAllUser();
+    }, 3000);
   }, []);
 
   const getAllUser = async () => {
     try {
       let temp = await UserService.findAll();
       setUsers(temp);
+      setLoading(false);
     } catch (e) {
       console.error(e);
     }
@@ -22,6 +26,7 @@ function UserList() {
   return (
     <div className="text-center">
       <h1>User List</h1>
+      {loading && <p>Loading...</p>}
       <ul>
         {users?.map((user) => (
           <li key={user.id} style={{ listStyle: "none" }}>
