@@ -1,6 +1,7 @@
 import Employee from "../components/Employee/Employee";
 import EmployeeDetail from "../components/Employee/EmployeeDetail";
 import Home from "../components/Home/Home";
+import Library from "../components/Library/Library";
 import LoginForm from "../components/Login/LoginForm";
 import LayOut from "../layout/LayOut";
 
@@ -23,12 +24,16 @@ const routes = [
         element: <LoginForm />,
       },
       {
-        path: "employee",
+        path: "/employee",
         element: <Employee />,
       },
       {
-        path: "/employee-detail/:id",
+        path: "/employee/:id",
         element: <EmployeeDetail />,
+      },
+      {
+        path: "/library",
+        element: <Library />,
       },
     ],
   },

@@ -8,7 +8,7 @@ function LayOut() {
   return (
     <>
       <Header />
-      <div className="container mt-4 text-center">
+      <div className="container mt-4">
         <ToastContainer />
         <Outlet />
       </div>

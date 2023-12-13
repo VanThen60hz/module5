@@ -17,6 +17,11 @@ function Header() {
                   Trang Login
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link btn btn-light" to={`/library`}>
+                  Trang Thư viện (library)
+                </NavLink>
+              </li>
             </ul>
           </div>
         </nav>
