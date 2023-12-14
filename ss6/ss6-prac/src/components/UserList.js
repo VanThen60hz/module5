@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as UserService from "../services/UserService";
+import * as ArticleService from "../services/ArticleService";
 import { NavLink, useNavigate } from "react-router-dom";
 
 function UserList() {
@@ -9,17 +10,23 @@ function UserList() {
 
   useEffect(() => {
     setTimeout(() => {
-      getAllUser();
+      getUserIdWithArticleCount();
     }, 3000);
   }, []);
 
-  const getAllUser = async () => {
+  const getUserIdWithArticleCount = async () => {
     try {
-      let temp = await UserService.findAll();
-      setUsers(temp);
-      setLoading(false);
-    } catch (e) {
-      console.error(e);
+      const userIdArticleCountMap =
+        await ArticleService.getUserIdWithArticleCount();
+      const usersWithArticleCount = users.map((user) => {
+        return {
+          ...user,
+          articleCount: userIdArticleCountMap[user.id] || 0,
+        };
+      });
+      setUsers(usersWithArticleCount);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -31,7 +38,7 @@ function UserList() {
         {users?.map((user) => (
           <li key={user.id} style={{ listStyle: "none" }}>
             <NavLink to={`/user/${user.id}`} state={{ user }}>
-              {user.name}
+              {user.name} - Articles: {user.articleCount}
             </NavLink>
           </li>
         ))}
