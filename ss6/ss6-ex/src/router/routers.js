@@ -2,6 +2,7 @@ import AddBook from "../components/Book/AddBook";
 import EditBook from "../components/Book/EditBook";
 import Contact from "../components/Contact";
 import AddContact from "../components/Contact/AddContact";
+import EditContact from "../components/Contact/EditContact";
 import Library from "../components/Library";
 import TodoApp from "../components/TodoApp";
 import LayOut from "../layout/Layout";
@@ -39,6 +40,10 @@ const routes = [
       {
         path: "/contact/add",
         element: <AddContact />,
+      },
+      {
+        path: "/contact/edit/:id",
+        element: <EditContact />,
       },
     ],
   },

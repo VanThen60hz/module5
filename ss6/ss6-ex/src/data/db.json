@@ -57,7 +57,7 @@
   "contacts": [
     {
       "id": 1,
-      "name": "Peter",
+      "name": "Peter Pan",
       "image": "https://prototypr-media.sfo2.digitaloceanspaces.com/wp-content/uploads/2021/06/avatar-150x150.png",
       "email": "peter@gmail.com",
       "phone": "0912123109"
@@ -75,13 +75,6 @@
       "image": "https://cdn.dribbble.com/users/3734064/screenshots/14348087/media/a99ab961c8f8c7d29b5f7136e0b19ca4.png",
       "email": "beck@gmail.com",
       "phone": "0912123121"
-    },
-    {
-      "name": "Meow Meow",
-      "image": {},
-      "email": "meowmeow@gmail.com",
-      "phone": "05426532652",
-      "id": 4
     }
   ]
 }

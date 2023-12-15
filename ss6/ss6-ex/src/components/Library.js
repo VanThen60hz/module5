@@ -25,7 +25,6 @@ function Library() {
       id: id,
       title: title,
     });
-    console.log(deletingBook);
   };
 
   const DeleteModal = () => {
@@ -42,8 +41,7 @@ function Library() {
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-body">
-              Bạn có chắc chắn muốn xóa sách có tiêu đề là: {deletingBook.title}
-              ?
+              Do you sure delete book with title: {deletingBook.title}?
             </div>
             <div className="modal-footer">
               <button

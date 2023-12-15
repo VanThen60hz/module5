@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as ContactService from "../services/ContactService";
+import { toast } from "react-toastify";
 // import { toast } from "react-toastify";
 
 function Contact() {
   const [contacts, setContacts] = useState([]);
-  //   const [deletingBook, setDeletingBook] = useState(null);
+  const [deletingContact, setDeletingContact] = useState(null);
 
   useEffect(() => {
     getContacts();
@@ -20,68 +21,67 @@ function Contact() {
     }
   };
 
-  //   const handleOpenDeleteModal = (id, title) => {
-  //     setDeletingBook({
-  //       id: id,
-  //       title: title,
-  //     });
-  //     console.log(deletingBook);
-  //   };
+  const handleOpenDeleteModal = (id, name) => {
+    setDeletingContact({
+      id: id,
+      name: name,
+    });
+  };
 
-  //   const DeleteModal = () => {
-  //     return (
-  //       <div
-  //         className="modal fade show"
-  //         id="exampleModal"
-  //         tabIndex="-1"
-  //         aria-labelledby="exampleModalLabel"
-  //         aria-modal="true"
-  //         role="dialog"
-  //         style={{ display: "block" }}
-  //       >
-  //         <div className="modal-dialog modal-dialog-centered" role="document">
-  //           <div className="modal-content">
-  //             <div className="modal-body">
-  //               Bạn có chắc chắn muốn xóa sách có tiêu đề là: {deletingBook.title}
-  //               ?
-  //             </div>
-  //             <div className="modal-footer">
-  //               <button
-  //                 type="button"
-  //                 className="btn btn-secondary"
-  //                 onClick={() => setDeletingBook(null)}
-  //               >
-  //                 Close
-  //               </button>
-  //               <button
-  //                 type="button"
-  //                 className="btn btn-danger"
-  //                 onClick={() => {
-  //                   deleteBook(deletingBook.id);
-  //                   setDeletingBook(null);
-  //                 }}
-  //               >
-  //                 Delete
-  //               </button>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     );
-  //   };
+  const DeleteModal = () => {
+    return (
+      <div
+        className="modal fade show"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-modal="true"
+        role="dialog"
+        style={{ display: "block" }}
+      >
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-body">
+              Do you sure delete contact with name: {deletingContact.name}?
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => setDeletingContact(null)}
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={() => {
+                  deleteContact(deletingContact.id);
+                  setDeletingContact(null);
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
-  //   const deleteBook = async (id) => {
-  //     try {
-  //       await BookService.deleteBook(id);
-  //       toast.success("Delete successfully!");
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
+  const deleteContact = async (id) => {
+    try {
+      await ContactService.deleteContact(id);
+      toast.success("Delete contact successfully!");
+      getContacts();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
-      {/* {deletingBook && DeleteModal()} */}
+      {deletingContact && DeleteModal()}
       <div className="d-flex justify-content-between">
         <h1>Contacts</h1>
         <Link to={`add`} className="btn btn-success h-50">
@@ -118,13 +118,16 @@ function Contact() {
               <td>
                 <Link
                   to={`edit/${contact.id}`}
+                  state={{ contact }}
                   className="btn btn-primary mx-2"
                 >
                   Edit
                 </Link>
                 <button
                   className="btn btn-danger"
-                  //   onClick={() => handleOpenDeleteModal(contact.id, contact.title)}
+                  onClick={() =>
+                    handleOpenDeleteModal(contact.id, contact.name)
+                  }
                 >
                   Delete
                 </button>

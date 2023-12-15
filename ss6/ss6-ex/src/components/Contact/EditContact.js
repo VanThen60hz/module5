@@ -3,33 +3,37 @@ import * as Yup from "yup";
 
 import * as ContactService from "../../services/ContactService";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 
-function AddContact() {
-  const [selectedImage, setSelectedImage] = useState(null);
+function EditContact() {
+  const location = useLocation();
   const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
   const fileInputRef = useRef();
 
   const initialValues = {
-    name: "",
-    image: "",
-    email: "",
-    phone: "",
+    id: location?.state?.contact?.id,
+    name: location?.state?.contact?.name,
+    image: location?.state?.contact?.image,
+    email: location?.state?.contact?.email,
+    phone: location?.state?.contact?.phone,
   };
 
   const validationSchema = {
     name: Yup.string().required("Name is required"),
-    image: Yup.string().required("Image is required"),
-    email: Yup.string().required("Email is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
     phone: Yup.string().required("Phone is required"),
   };
 
-  const addContact = async (contact) => {
+  const updateContact = async (contact) => {
     try {
-      await ContactService.create(contact);
+      await ContactService.update(contact.id, contact);
       navigate("/contact");
-      toast.success("Add new book successfully!");
+      toast.success("Update contact successfully!");
+      console.log(contact);
     } catch (error) {
       if (error.response) {
         const responseData = error.response.data;
@@ -62,7 +66,7 @@ function AddContact() {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, { setSubmitting }) => {
-          addContact(values);
+          updateContact(values);
           setTimeout(() => {
             setSubmitting(false);
           }, 3000);
@@ -72,7 +76,7 @@ function AddContact() {
         {({ isSubmitting, setFieldValue }) => (
           <Form className="w-50">
             <div className="mb-3 d-flex align-items-center">
-              {/* Chưa xử lý add ảnh do chy */}
+              {/* Chưa xử lý add ảnh do chưa sử dụng firebase */}
               {selectedImage ? (
                 <img
                   src={selectedImage}
@@ -81,8 +85,10 @@ function AddContact() {
                   style={{ width: "100px", marginRight: "20px" }}
                 />
               ) : (
-                <div
+                <img
                   className="rounded-circle"
+                  src={`${location?.state?.contact?.image}`}
+                  alt="Selected Avatar"
                   style={{
                     width: "100px",
                     height: "100px",
@@ -90,7 +96,7 @@ function AddContact() {
                     border: "1px solid black",
                     backgroundColor: "#dedede",
                   }}
-                ></div>
+                ></img>
               )}
               <button
                 type="button"
@@ -171,7 +177,7 @@ function AddContact() {
                 className="btn btn-success w-50"
                 style={{ display: "block", margin: "auto" }}
               >
-                Add contact
+                Edit contact
               </button>
             )}
           </Form>
@@ -181,4 +187,4 @@ function AddContact() {
   );
 }
 
-export default AddContact;
+export default EditContact;
