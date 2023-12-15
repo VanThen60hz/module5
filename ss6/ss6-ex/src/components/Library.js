@@ -56,7 +56,7 @@ function Library() {
               <button
                 type="button"
                 className="btn btn-danger"
-                onClick={async () => {
+                onClick={() => {
                   deleteBook(deletingBook.id);
                   setDeletingBook(null);
                 }}
