@@ -5,6 +5,7 @@ import * as ContactService from "../../services/ContactService";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
+import { storage } from "../../config/firebaseConfig";
 
 function EditContact() {
   const location = useLocation();
@@ -47,11 +48,34 @@ function EditContact() {
     }
   };
 
-  const handleImageChange = (e, setFieldValue) => {
-    const selectedFile = e.target.files[0];
-    const imageUrl = URL.createObjectURL(selectedFile);
-    setSelectedImage(imageUrl);
-    setFieldValue("image", selectedFile);
+  const handleImageChange = async (e, setFieldValue) => {
+    try {
+      const selectedFile = e.target.files[0];
+      const imageUrl = URL.createObjectURL(selectedFile);
+      setSelectedImage(imageUrl);
+      setFieldValue("image", selectedFile);
+      // console.log(selectedFile);
+      console.log(imageUrl);
+
+      // Create a reference to the storage root
+      const storageRef = storage.ref();
+
+      // Create a reference to the file in storage
+      const imageRef = storageRef.child(`${selectedFile.name}`);
+
+      // Upload the file to Firebase Storage
+      const snapshot = await imageRef.put(selectedFile);
+
+      // Get the download URL of the uploaded file
+      const downloadURL = await snapshot.ref.getDownloadURL();
+      console.log(downloadURL);
+      // Update the state and form field with the download URL
+      // setSelectedImage(downloadURL);
+      setFieldValue("image", downloadURL);
+    } catch (error) {
+      console.error("Error uploading image to Firebase Storage:", error);
+      // Handle the error as needed
+    }
   };
 
   const openFileDialog = () => {

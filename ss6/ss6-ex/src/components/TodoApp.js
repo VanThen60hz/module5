@@ -60,7 +60,7 @@ function TodoApp() {
       await TodoService.update(todoId, {
         completed: !todoList.find((todo) => todo.id === todoId).completed,
       });
-      toast.success("Completed to do successfully!");
+      toast.success("Update to do status successfully!");
     } catch (error) {
       console.error(error);
     }

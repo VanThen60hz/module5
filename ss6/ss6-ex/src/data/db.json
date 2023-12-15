@@ -16,7 +16,7 @@
       "userId": 2,
       "id": 3,
       "title": "Go to school",
-      "completed": true
+      "completed": false
     },
     {
       "userId": 3,
@@ -27,13 +27,13 @@
     {
       "userId": "5",
       "title": "Do the homework",
-      "completed": false,
+      "completed": true,
       "id": 5
     },
     {
       "userId": "5",
       "title": "Do ur works",
-      "completed": false,
+      "completed": true,
       "id": 6
     }
   ],
@@ -75,6 +75,20 @@
       "image": "https://cdn.dribbble.com/users/3734064/screenshots/14348087/media/a99ab961c8f8c7d29b5f7136e0b19ca4.png",
       "email": "beck@gmail.com",
       "phone": "0912123121"
+    },
+    {
+      "name": "Meow IT",
+      "image": "https://firebasestorage.googleapis.com/v0/b/my-project-18cf3.appspot.com/o/m%C3%A8o%20IT%203.jpg?alt=media&token=510fb7cc-766f-4a18-96af-7db1f2fcfeba",
+      "email": "meowmeow@gmail.com",
+      "phone": "05426532652",
+      "id": 4
+    },
+    {
+      "name": "Meow oh",
+      "image": "https://firebasestorage.googleapis.com/v0/b/my-project-18cf3.appspot.com/o/OIP.jpeg?alt=media&token=3c8467e0-1aab-4933-a41a-a8b921bf23ce",
+      "email": "meowmeowoh@gmail.com",
+      "phone": "05426532655",
+      "id": 5
     }
   ]
 }
