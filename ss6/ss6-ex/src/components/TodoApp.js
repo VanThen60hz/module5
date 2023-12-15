@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as TodoService from "../services/TodoService";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { toast } from "react-toastify";
 
 function TodoApp() {
   const [todoList, setTodoList] = useState([]);
@@ -38,7 +38,7 @@ function TodoApp() {
         title: "",
         completed: false,
       });
-      alert("Add new to do successfully!");
+      toast.success("Add new to do successfully!");
     } catch (error) {
       console.error(error);
     }
@@ -46,7 +46,7 @@ function TodoApp() {
 
   const handleCompleteChange = async (todoId) => {
     try {
-      const updateTodoList = todoList.map((todo) => {
+      const updateTodoList = todoList?.map((todo) => {
         if (todo.id === todoId) {
           return {
             ...todo,
@@ -60,7 +60,7 @@ function TodoApp() {
       await TodoService.update(todoId, {
         completed: !todoList.find((todo) => todo.id === todoId).completed,
       });
-      alert("Completed to do successfully!");
+      toast.success("Completed to do successfully!");
     } catch (error) {
       console.error(error);
     }
@@ -118,7 +118,7 @@ function TodoApp() {
           </tr>
         </thead>
         <tbody>
-          {todoList.map((todo) => (
+          {todoList?.map((todo) => (
             <tr key={`${todo.userId}_${todo.id}`}>
               <td>{todo.userId}</td>
               <td>{todo.title}</td>

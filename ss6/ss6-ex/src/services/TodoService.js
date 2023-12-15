@@ -2,9 +2,7 @@ import axios from "axios";
 
 export const findAll = async () => {
   try {
-    let response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
+    let response = await axios.get("http://localhost:8080/todos");
     return response.data;
   } catch (e) {
     console.log(e);
@@ -13,10 +11,7 @@ export const findAll = async () => {
 
 export const create = async (todo) => {
   try {
-    let response = await axios.post(
-      "https://jsonplaceholder.typicode.com/todos",
-      todo
-    );
+    let response = await axios.post("http://localhost:8080/todos", todo);
     return response.data;
   } catch (e) {
     console.log(e);
@@ -26,7 +21,7 @@ export const create = async (todo) => {
 export const update = async (todoId, todo) => {
   try {
     let response = await axios.patch(
-      `https://jsonplaceholder.typicode.com/todos/${todoId}`,
+      `http://localhost:8080/todos/${todoId}`,
       todo
     );
     return response.data;
