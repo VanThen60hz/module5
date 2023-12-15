@@ -73,7 +73,7 @@ function Library() {
   const deleteBook = async (id) => {
     try {
       await BookService.deleteBook(id);
-      toast.success("Xóa thành công!");
+      toast.success("Delete successfully!");
     } catch (error) {
       console.error(error);
     }

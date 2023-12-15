@@ -39,14 +39,49 @@
   ],
   "books": [
     {
-      "title": "Home Alone",
-      "quantity": 50,
-      "id": 5
-    },
-    {
       "title": "Harry Potter",
       "quantity": 34,
       "id": 6
+    },
+    {
+      "title": "Home Alone",
+      "quantity": 33,
+      "id": 7
+    },
+    {
+      "title": "Meow meow meow",
+      "quantity": 44,
+      "id": 8
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Peter",
+      "image": "https://prototypr-media.sfo2.digitaloceanspaces.com/wp-content/uploads/2021/06/avatar-150x150.png",
+      "email": "peter@gmail.com",
+      "phone": "0912123109"
+    },
+    {
+      "id": 2,
+      "name": "Richard",
+      "image": "https://images.vexels.com/content/145908/preview/male-avatar-maker-2a7919.png",
+      "email": "richard@gmail.com",
+      "phone": "0912123123"
+    },
+    {
+      "id": 3,
+      "name": "Beck",
+      "image": "https://cdn.dribbble.com/users/3734064/screenshots/14348087/media/a99ab961c8f8c7d29b5f7136e0b19ca4.png",
+      "email": "beck@gmail.com",
+      "phone": "0912123121"
+    },
+    {
+      "name": "Meow Meow",
+      "image": {},
+      "email": "meowmeow@gmail.com",
+      "phone": "05426532652",
+      "id": 4
     }
   ]
 }
