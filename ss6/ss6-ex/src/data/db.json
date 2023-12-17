@@ -60,21 +60,18 @@
       "id": 4
     },
     {
-      "name": "Meow oh",
-      "image": "https://firebasestorage.googleapis.com/v0/b/my-project-18cf3.appspot.com/o/OIP.jpeg?alt=media&token=3c8467e0-1aab-4933-a41a-a8b921bf23ce",
-      "email": "meowmeowoh@gmail.com",
-      "phone": "05426532655",
-      "id": 5
-    },
-    {
       "name": "Meow rưng rưng",
-      "image": "https://firebasestorage.googleapis.com/v0/b/my-project-18cf3.appspot.com/o/meow%20r%C6%B0ng%20r%C6%B0ng.jpeg?alt=media&token=05fdbc4c-a1a7-4f5a-a2e3-5f79f84a908e",
+      "image": "https://firebasestorage.googleapis.com/v0/b/my-project-18cf3.appspot.com/o/meow%20r%C6%B0ng%20r%C6%B0ng.jpeg?alt=media&token=1da3df48-c047-4321-9857-155af7e5805b",
       "email": "meowrungrung@gmail.com",
       "phone": "05426532652",
       "id": 6
     }
   ],
   "users": [
+    {
+      "id": 1,
+      "name": "Tommy"
+    },
     {
       "id": 2,
       "name": "Jennie"
@@ -91,12 +88,12 @@
   "articles": [
     {
       "id": 1,
-      "title": "Lorem ipsum dolor  sửa",
+      "title": "Lorem ipsum new article",
       "user_id": 1
     },
     {
       "id": 2,
-      "title": "Lorem ipsum dolor Aádfas adfsasdsadfas",
+      "title": "Lorem ipsum dolor kjasdf;ád",
       "user_id": 1
     },
     {
@@ -113,6 +110,11 @@
       "id": 5,
       "title": "Lorem ipsum dolor sit amet",
       "user_id": 4
+    },
+    {
+      "title": "New article",
+      "user_id": 1,
+      "id": 6
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import * as ArticleService from "../../services/ArticleService";
 import { toast } from "react-toastify";
 import EditArticle from "./EditArticle";
@@ -9,13 +9,17 @@ function Article({ user, articleAddedTime }) {
   const [editingArticle, setEditingArticle] = useState(null);
   const [deletingArticle, setDeletingArticles] = useState(null);
 
+  const { id } = useParams();
+
   useEffect(() => {
     getArticleByUserId(user?.id);
   }, [user?.id, articleAddedTime, editingArticle]);
 
   const getArticleByUserId = async (userId) => {
     try {
-      const articles = await ArticleService.findArticleByUserId(userId);
+      const defaultUserId = userId ? userId : id;
+
+      const articles = await ArticleService.findArticleByUserId(defaultUserId);
       setArticles(articles);
     } catch (error) {
       console.error(error);
@@ -80,19 +84,13 @@ function Article({ user, articleAddedTime }) {
     setEditingArticle(article);
   };
 
-  const handleCancelEdit = () => {
-    // vì sao ko set lại null cho editingArticle
+  const handleCancelEdit = async () => {
     setEditingArticle(null);
   };
 
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     setEditingArticle(null);
-    // vì sao ko có null mà lại là giá trị trong khi đã set ở trên
-    console.log(editingArticle);
-    console.log(
-      "Vào hàm handle Update gọi từ onUpdate() sau khi nhấn button update"
-    );
-    console.log("Thế méo nào méo setState editingArticle thành null");
+
     getArticleByUserId(user?.id);
   };
 

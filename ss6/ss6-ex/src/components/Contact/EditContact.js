@@ -23,6 +23,7 @@ function EditContact() {
 
   const validationSchema = {
     name: Yup.string().required("Name is required"),
+    // image: Yup.string().required("Image is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -100,7 +101,6 @@ function EditContact() {
         {({ isSubmitting, setFieldValue }) => (
           <Form className="w-50">
             <div className="mb-3 d-flex align-items-center">
-              {/* Chưa xử lý add ảnh do chưa sử dụng firebase */}
               {selectedImage ? (
                 <img
                   src={selectedImage}
