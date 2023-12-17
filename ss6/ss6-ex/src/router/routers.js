@@ -1,10 +1,13 @@
 import AddBook from "../components/Book/AddBook";
 import EditBook from "../components/Book/EditBook";
-import Contact from "../components/Contact";
+import Contact from "../pages/Contact";
 import AddContact from "../components/Contact/AddContact";
 import EditContact from "../components/Contact/EditContact";
-import Library from "../components/Library";
-import TodoApp from "../components/TodoApp";
+import Library from "../pages/Library";
+import TodoApp from "../pages/TodoApp";
+import User from "../pages/User";
+import UserForm from "../components/User/UserForm";
+import UserUpdateWithArticle from "../components/UserUpdateWithArticle";
 import LayOut from "../layout/Layout";
 
 const routes = [
@@ -44,6 +47,18 @@ const routes = [
       {
         path: "/contact/edit/:id",
         element: <EditContact />,
+      },
+      {
+        path: "user",
+        element: <User />,
+      },
+      {
+        path: "user/add",
+        element: <UserForm />,
+      },
+      {
+        path: "user/edit/:id",
+        element: <UserUpdateWithArticle />,
       },
     ],
   },

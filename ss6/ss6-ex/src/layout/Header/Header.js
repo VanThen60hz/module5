@@ -53,6 +53,14 @@ function Header() {
                   </NavLink>
                 </li>
                 <li className="nav-item">
+                  <NavLink
+                    to={`user`}
+                    className="nav-link me-3 btn btn-primary"
+                  >
+                    User
+                  </NavLink>
+                </li>
+                <li className="nav-item">
                   <NavLink to={``} className="nav-link me-3 btn btn-primary">
                     Login
                   </NavLink>

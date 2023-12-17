@@ -1,18 +1,6 @@
 {
   "todos": [
     {
-      "userId": 1,
-      "id": 1,
-      "title": "Toothbrush",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 2,
-      "title": "Go sleeping",
-      "completed": false
-    },
-    {
       "userId": 2,
       "id": 3,
       "title": "Go to school",
@@ -23,18 +11,6 @@
       "id": 4,
       "title": "Fix bugs",
       "completed": true
-    },
-    {
-      "userId": "5",
-      "title": "Do the homework",
-      "completed": true,
-      "id": 5
-    },
-    {
-      "userId": "5",
-      "title": "Do ur works",
-      "completed": true,
-      "id": 6
     }
   ],
   "books": [
@@ -89,6 +65,54 @@
       "email": "meowmeowoh@gmail.com",
       "phone": "05426532655",
       "id": 5
+    },
+    {
+      "name": "Meow rưng rưng",
+      "image": "https://firebasestorage.googleapis.com/v0/b/my-project-18cf3.appspot.com/o/meow%20r%C6%B0ng%20r%C6%B0ng.jpeg?alt=media&token=05fdbc4c-a1a7-4f5a-a2e3-5f79f84a908e",
+      "email": "meowrungrung@gmail.com",
+      "phone": "05426532652",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "id": 2,
+      "name": "Jennie"
+    },
+    {
+      "id": 3,
+      "name": "Harry"
+    },
+    {
+      "id": 4,
+      "name": "Beck"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "Lorem ipsum dolor  sửa",
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "title": "Lorem ipsum dolor Aádfas adfsasdsadfas",
+      "user_id": 1
+    },
+    {
+      "id": 3,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 2
+    },
+    {
+      "id": 4,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 3
+    },
+    {
+      "id": 5,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 4
     }
   ]
 }
