@@ -13,7 +13,7 @@ function Article({ user, articleAddedTime }) {
 
   useEffect(() => {
     getArticleByUserId(user?.id);
-  }, [user?.id, articleAddedTime, editingArticle]);
+  }, [user?.id, articleAddedTime, editingArticle, deletingArticle]);
 
   const getArticleByUserId = async (userId) => {
     try {

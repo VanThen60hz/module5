@@ -110,11 +110,6 @@
       "id": 5,
       "title": "Lorem ipsum dolor sit amet",
       "user_id": 4
-    },
-    {
-      "title": "New article",
-      "user_id": 1,
-      "id": 6
     }
   ]
 }

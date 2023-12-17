@@ -4,7 +4,7 @@ function Home() {
   const { state } = useLocation();
   return (
     <div>
-      <h1 className="my-5">Home</h1>
+      <h1 className="my-5 text-center">Home</h1>
       {state && state.account && <p>Welcome, {state.account.email}! </p>}
     </div>
   );
