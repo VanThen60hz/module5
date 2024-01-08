@@ -1,0 +1,126 @@
+{
+  "products": [
+    {
+      "maSP": "PROD-0001",
+      "name": "T-shirt",
+      "categoryId": "3",
+      "price": 1999.99,
+      "quantity": 3,
+      "date": "2023-10-01",
+      "description": "This is beautiful t-shirt",
+      "id": 1
+    },
+    {
+      "maSP": "PROD-0002",
+      "name": "Jean",
+      "categoryId": "3",
+      "price": 1499.99,
+      "quantity": 20,
+      "date": "2023-10-11",
+      "description": "Cool style jean",
+      "id": 2
+    },
+    {
+      "maSP": "PROD-0003",
+      "name": "Hoodie",
+      "categoryId": "2",
+      "price": 899.99,
+      "quantity": 15,
+      "date": "2023-10-11",
+      "description": "Hottest hoodie in this winter",
+      "id": 3
+    },
+    {
+      "maSP": "PROD-0004",
+      "name": "Meow hoodie",
+      "categoryId": "3",
+      "price": 999.99,
+      "quantity": 10,
+      "date": "2023-02-07",
+      "description": "Cute hoodie with meow picture",
+      "id": 4
+    },
+    {
+      "maSP": "PROD-0005",
+      "name": "Meow shirt cập nhật",
+      "categoryId": "1",
+      "price": 999.99,
+      "quantity": 25,
+      "date": "2023-10-11",
+      "description": "Cute meow shirt",
+      "id": 5
+    },
+    {
+      "maSP": "PROD-0006",
+      "name": "Meow shirt",
+      "categoryId": "1",
+      "price": 999.99,
+      "quantity": 25,
+      "date": "2023-10-11",
+      "description": "Cute meow shirt",
+      "id": 6
+    },
+    {
+      "maSP": "PROD-0007",
+      "name": "Meow shirt",
+      "categoryId": "1",
+      "price": 999.99,
+      "quantity": 25,
+      "date": "2023-10-11",
+      "description": "Cute meow shirt",
+      "id": 7
+    },
+    {
+      "maSP": "PROD-0008",
+      "name": "Meow shirt",
+      "categoryId": "1",
+      "price": 999.99,
+      "quantity": 25,
+      "date": "2023-10-11",
+      "description": "Cute meow shirt",
+      "id": 8
+    },
+    {
+      "maSP": "PROD-0009",
+      "name": "Meow shirt",
+      "categoryId": "1",
+      "price": 999.99,
+      "quantity": 25,
+      "date": "2023-10-11",
+      "description": "Cute meow shirt",
+      "id": 9
+    },
+    {
+      "maSP": "PROD-0010",
+      "name": "Blazer",
+      "categoryId": "1",
+      "price": 999.99,
+      "quantity": 25,
+      "date": "2024-01-07",
+      "description": "Latest model with blazer shirt",
+      "id": 10
+    }
+  ],
+  "categories": [
+    {
+      "name": "Spring",
+      "id": 1,
+      "description": "Smartphones and feature phones"
+    },
+    {
+      "name": "Summer",
+      "id": 2,
+      "description": "Mobile computing devices"
+    },
+    {
+      "name": "Thu",
+      "id": 3,
+      "description": "Powerful computing devices"
+    },
+    {
+      "id": 4,
+      "name": "Winter",
+      "description": "Wearable technology for health and connectivity"
+    }
+  ]
+}
